@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { SignInButton } from "@clerk/clerk-react";
 import { useConvexAuth } from "convex/react";
 import { ArrowRight, Link } from "lucide-react";
+import { useRouter } from "next/router";
 
 const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
+  const router = useRouter();
 
   return (
     <div className="max-w-3xl space-y-4">
@@ -34,12 +36,14 @@ const Heading = () => {
 
       {isAuthenticated && !isLoading && (
         <>
-           <button className="cursor-pointer px-3 py-2 "  >
-            <span>Documents</span>
-            <Link href={"/documents"}>
-             documents
-            </Link>
-          </button>
+          <Button className="cursor-pointer">
+            <span
+              onClick={() => router.push("/documents")}
+              className="text-sm font-medium"
+            >
+              Go To Clotion
+            </span>
+          </Button>
         </>
       )}
     </div>
