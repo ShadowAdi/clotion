@@ -34,11 +34,12 @@ const Heading = () => {
 
       {isAuthenticated && !isLoading && (
         <>
-          <Button className="cursor-pointer" asChild>
+           <button className="cursor-pointer px-3 py-2 "  >
+            <span>Documents</span>
             <Link href={"/documents"}>
-              <span>Enter Clotion</span>
+             documents
             </Link>
-          </Button>
+          </button>
         </>
       )}
     </div>
